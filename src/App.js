@@ -55,14 +55,20 @@ function App() {
                 <section>
                     <h2>Working.. 🔥</h2>
                     <ul className="todo-list">
-                        <li>
-                            <strong>제목</strong>
-                            <p>내용</p>
-                            <div className="btn-wrap">
-                                <button className="btn-del">삭제하기</button>
-                                <button className="btn-done">완료</button>
-                            </div>
-                        </li>
+                        {todo
+                            .filter((item) => item.isDone == false)
+                            .map((item) => {
+                                return (
+                                    <li key={item.id}>
+                                        <strong>{item.title}</strong>
+                                        <p>{item.body}</p>
+                                        <div className="btn-wrap">
+                                            <button className="btn-del">삭제하기</button>
+                                            <button className="btn-done">완료</button>
+                                        </div>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </section>
 
