@@ -16,7 +16,7 @@ function App() {
                     </label>
 
                     <label>
-                        내용
+                        내용입니다.
                         <input className="form" type="text"></input>
                     </label>
 
