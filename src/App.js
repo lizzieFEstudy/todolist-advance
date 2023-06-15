@@ -3,10 +3,15 @@ import './reset.css';
 import './App.css';
 
 function App() {
-    let [todo, setTodo] = useState([
-        { id: 0, title: '리액트 공부하기✏️', body: '리액트를 공부해봅시다.', isDone: false },
-        { id: 1, title: '폰 게임 30분만 하기🎲', body: '하루 30분 초과 금지', isDone: true },
-    ]);
+    let getData = () =>
+        JSON.parse(localStorage.getItem('todo')) || [
+            { id: 0, title: '리액트 공부하기✏️', body: '리액트를 공부해봅시다.', isDone: false },
+            { id: 1, title: '폰 게임 30분만 하기🎲', body: '하루 30분 초과 금지', isDone: true },
+        ];
+
+    let [todo, setTodo] = useState(getData);
+    localStorage.setItem('todo', JSON.stringify(todo));
+
     let [title, setTitle] = useState('');
     let [body, setBody] = useState('');
 
