@@ -31,6 +31,17 @@ function App() {
         setBody('');
     };
 
+    const toggleDoneButtonHandler = (id) => {
+        let copyTodo = [...todo];
+        let ind;
+        copyTodo.forEach((todo, i) => {
+            if (todo.id == id) ind = i;
+        });
+        copyTodo[ind].isDone = !copyTodo[ind].isDone;
+        setTodo(copyTodo);
+        localStorage.setItem('todo', JSON.stringify(copyTodo));
+    };
+
     return (
         <div id="wrap">
             <header>
@@ -64,7 +75,9 @@ function App() {
                                         <p>{item.body}</p>
                                         <div className="btn-wrap">
                                             <button className="btn-del">삭제하기</button>
-                                            <button className="btn-done">완료</button>
+                                            <button className="btn-done" onClick={() => toggleDoneButtonHandler(item.id)}>
+                                                {item.isDone == false ? '완료' : '계속'}
+                                            </button>
                                         </div>
                                     </li>
                                 );
@@ -75,14 +88,22 @@ function App() {
                 <section>
                     <h2>Done..! 🎉</h2>
                     <ul className="todo-list done">
-                        <li>
-                            <strong>제목</strong>
-                            <p>내용</p>
-                            <div className="btn-wrap">
-                                <button className="btn-del">삭제하기</button>
-                                <button className="btn-done">완료</button>
-                            </div>
-                        </li>
+                        {todo
+                            .filter((item) => item.isDone == true)
+                            .map((item) => {
+                                return (
+                                    <li key={item.id}>
+                                        <strong>{item.title}</strong>
+                                        <p>{item.body}</p>
+                                        <div className="btn-wrap">
+                                            <button className="btn-del">삭제하기</button>
+                                            <button className="btn-done" onClick={() => toggleDoneButtonHandler(item.id)}>
+                                                {item.isDone == false ? '완료' : '계속'}
+                                            </button>
+                                        </div>
+                                    </li>
+                                );
+                            })}
                     </ul>
                 </section>
             </main>
