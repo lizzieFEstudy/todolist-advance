@@ -42,6 +42,12 @@ function App() {
         localStorage.setItem('todo', JSON.stringify(copyTodo));
     };
 
+    const clickRemoveButtonHandler = (id) => {
+        let filteredTodo = todo.filter((item) => item.id !== id);
+        setTodo(filteredTodo);
+        localStorage.setItem('todo', JSON.stringify(filteredTodo));
+    };
+
     return (
         <div id="wrap">
             <header>
@@ -74,7 +80,9 @@ function App() {
                                         <strong>{item.title}</strong>
                                         <p>{item.body}</p>
                                         <div className="btn-wrap">
-                                            <button className="btn-del">삭제하기</button>
+                                            <button className="btn-del" onClick={() => clickRemoveButtonHandler(item.id)}>
+                                                삭제하기
+                                            </button>
                                             <button className="btn-done" onClick={() => toggleDoneButtonHandler(item.id)}>
                                                 {item.isDone == false ? '완료' : '계속'}
                                             </button>
@@ -96,7 +104,9 @@ function App() {
                                         <strong>{item.title}</strong>
                                         <p>{item.body}</p>
                                         <div className="btn-wrap">
-                                            <button className="btn-del">삭제하기</button>
+                                            <button className="btn-del" onClick={() => clickRemoveButtonHandler(item.id)}>
+                                                삭제하기
+                                            </button>
                                             <button className="btn-done" onClick={() => toggleDoneButtonHandler(item.id)}>
                                                 {item.isDone == false ? '완료' : '계속'}
                                             </button>
