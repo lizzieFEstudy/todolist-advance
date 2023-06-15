@@ -1,4 +1,5 @@
 import './reset.css';
+import './reset.css';
 import './App.css';
 
 function App() {
