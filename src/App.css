@@ -1,3 +1,158 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+
+/* Reset */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Common */
+html {
+  height: 100%;
+  font-size: 18px;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
+  color: #333;
+}
+button {
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Layout */
 #wrap {
   max-width: 1200px;
   min-width: 800px;
@@ -9,121 +164,4 @@ h1 {
   margin: 16px 0;
   font-size: 22px;
   font-weight: 600;
-}
-
-.add-form-box {
-  display: flex;
-  padding: 26px 32px;
-  border-radius: 16px;
-  background: #f7f7f7;
-}
-
-.add-form-box label {
-  flex: 1 1;
-  display: flex;
-  align-items: center;
-}
-
-.form {
-  box-sizing: border-box;
-  font-size: 16px;
-  border: 1px solid #cdcdcd;
-  margin: 0 28px 0 12px;
-  padding: 0 10px;
-  height: 48px;
-  border-radius: 6px;
-  width: auto;
-  min-width: 150px;
-  background-color: #fff;
-}
-
-.add-form-box .form {
-  flex: 1;
-}
-
-.add-form-box button {
-  width: 120px;
-  height: 48px;
-  margin-left: auto;
-  border: 0;
-  border-radius: 6px;
-  padding: 0 16px;
-  /* background: #203a91; */
-  background: #005955;
-  color: #fff;
-}
-
-h2 {
-  margin: 56px 0 16px;
-  font-size: 22px;
-  font-weight: 600;
-}
-
-.todo-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px 2%;
-}
-.todo-list > li {
-  overflow: hidden;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 32%;
-  min-height: 220px;
-  margin-bottom: 10px;
-  padding: 30px 24px 94px;
-  border: 3px solid #203a91;
-  border: 3px solid #005955;
-  border-radius: 16px;
-  box-shadow: 0 8px 15px rgba(11, 51, 82, 0.2);
-}
-
-.todo-list > li > strong {
-  display: block;
-  margin: 0 0 14px;
-  font-size: 24px;
-  font-weight: 600;
-}
-.todo-list > li > p {
-  flex: 1;
-  color: #888;
-}
-
-.todo-list .btn-wrap {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  margin: 0;
-  border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
-  overflow: hidden;
-}
-.todo-list .btn-wrap button {
-  float: left;
-  min-width: 50%;
-  height: 54px;
-  margin: 0;
-  border-radius: 0;
-  box-sizing: border-box;
-  border: 0;
-  background: #f2f2f2;
-}
-
-.todo-list .btn-wrap .btn-done {
-  color: #fff;
-  background: #203a91;
-  background: #005955;
-}
-
-.todo-list.done > li {
-  box-shadow: none;
-  border-color: #eaebed;
-  border-color: #dbdde1;
-}
-
-.todo-list.done .btn-wrap .btn-done {
-  background: #fbb938;
 }

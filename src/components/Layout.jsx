@@ -1,6 +1,6 @@
 import React from "react";
 
-function Layout({ children }) {
+const Layout = ({ children }) => {
   return (
     <div id="wrap">
       <header>
@@ -11,6 +11,6 @@ function Layout({ children }) {
       <main id="main">{children}</main>
     </div>
   );
-}
+};
 
 export default Layout;
