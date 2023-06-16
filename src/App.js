@@ -2,67 +2,35 @@ import { useState } from "react";
 import "reset.css";
 import "App.css";
 import Layout from "components/Layout";
-import { ListItem, AddForm } from "components/Todo";
+import Input from "components/Input";
+import TodoList from "components/TodoList";
 
 function App() {
   let getData = () =>
-    JSON.parse(localStorage.getItem("todo")) || [
+    JSON.parse(localStorage.getItem("todos")) || [
       {
         id: 0,
         title: "리액트 공부하기✏️",
-        body: "리액트를 공부해봅시다.",
+        contents: "리액트를 공부해봅시다.",
         isDone: false
       },
       {
         id: 1,
         title: "폰 게임 30분만 하기🎲",
-        body: "하루 30분 초과 금지",
+        contents: "하루 30분 초과 금지",
         isDone: true
       }
     ];
 
-  let [todo, setTodo] = useState(getData);
-  localStorage.setItem("todo", JSON.stringify(todo));
+  let [todos, setTodos] = useState(getData);
+  localStorage.setItem("todos", JSON.stringify(todos));
 
   return (
     <Layout>
-      <AddForm todo={todo} setTodo={setTodo} />
+      <Input todos={todos} setTodos={setTodos} />
 
-      <section>
-        <h2>Working.. 🔥</h2>
-        <ul className="todo-list">
-          {todo
-            .filter(item => item.isDone == false)
-            .map(item => {
-              return (
-                <ListItem
-                  key={item.id}
-                  item={item}
-                  todo={todo}
-                  setTodo={setTodo}
-                />
-              );
-            })}
-        </ul>
-      </section>
-
-      <section>
-        <h2>Done..! 🎉</h2>
-        <ul className="todo-list done">
-          {todo
-            .filter(item => item.isDone == true)
-            .map(item => {
-              return (
-                <ListItem
-                  key={item.id}
-                  item={item}
-                  todo={todo}
-                  setTodo={setTodo}
-                />
-              );
-            })}
-        </ul>
-      </section>
+      <TodoList todos={todos} setTodos={setTodos} listIsDone={false} />
+      <TodoList todos={todos} setTodos={setTodos} listIsDone={true} />
     </Layout>
   );
 }
