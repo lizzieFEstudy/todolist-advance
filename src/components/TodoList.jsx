@@ -1,22 +1,27 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { deleteTodo, updateTodo } from "redux/modules/todos";
 
-const TodoList = ({ todos, setTodos, listIsDone }) => {
+const TodoList = ({ todos, listIsDone }) => {
+  const dispatch = useDispatch();
+
   const clickDoneButtonHandler = id => {
-    const updatedTodos = initialTodos => {
-      return initialTodos.map(item => {
-        if (item.id === id) {
-          return { ...item, isDone: !item.isDone };
-        }
+    const newTodos = todos.map(item => {
+      if (item.id == id) {
+        return {
+          ...item,
+          isDone: !item.isDone
+        };
+      } else {
         return item;
-      });
-    };
-
-    setTodos(updatedTodos);
+      }
+    });
+    dispatch(updateTodo(newTodos));
   };
 
   const clickRemoveButtonHandler = id => {
     const deletedTodos = todos.filter(item => item.id !== id);
-    setTodos(deletedTodos);
+    dispatch(deleteTodo(deletedTodos));
   };
 
   return (
