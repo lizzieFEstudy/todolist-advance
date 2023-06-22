@@ -1,15 +1,19 @@
 import React from "react";
+import { S } from "./LayoutStyle";
+import { Link } from "react-router-dom";
 
 const Layout = ({ children }) => {
   return (
-    <div id="wrap">
+    <S.LayoutBox>
       <header>
-        <h1>My Todo List</h1>
+        <S.LayoutH1>
+          <Link to={`/`}>My Todo List</Link>
+        </S.LayoutH1>
       </header>
 
       {/* <div id="container"> */}
       <main id="main">{children}</main>
-    </div>
+    </S.LayoutBox>
   );
 };
 
