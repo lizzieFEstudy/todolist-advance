@@ -153,6 +153,11 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
+a {
+ font: inherit;
+ text-decoration: none;
+ color: inherit;
+}
 `;
 
 export default GlobalStyle;

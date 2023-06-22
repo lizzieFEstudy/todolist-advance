@@ -1,30 +1,23 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { deleteTodo, updateTodo } from "redux/modules/todos";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteTodo, toggleStatusTodo } from "redux/modules/todos";
 import { S } from "./TodoListStyle";
 import { Link } from "react-router-dom";
 
-const TodoList = ({ todos, listIsDone }) => {
+const TodoList = ({ listIsDone }) => {
+  const todos = useSelector(state => {
+    return state.todos.todos;
+  });
+
   const dispatch = useDispatch();
 
-  const clickDoneButtonHandler = id => {
-    const newTodos = todos.map(item => {
-      if (item.id == id) {
-        return {
-          ...item,
-          isDone: !item.isDone
-        };
-      } else {
-        return item;
-      }
-    });
-    dispatch(updateTodo(newTodos));
-  };
+  // const clickDoneButtonHandler = id => {
+  //   dispatch(toggleStatusTodo(id));
+  // };
 
-  const clickRemoveButtonHandler = id => {
-    const deletedTodos = todos.filter(item => item.id !== id);
-    dispatch(deleteTodo(deletedTodos));
-  };
+  // const clickRemoveButtonHandler = id => {
+  //   dispatch(deleteTodo(id));
+  // };
 
   return (
     <section>
@@ -40,13 +33,13 @@ const TodoList = ({ todos, listIsDone }) => {
                 <Link to={`/detail/${item.id}`}>상세보기</Link>
                 <S.TodoListBox>
                   <S.TodoListButton
-                    onClick={() => clickRemoveButtonHandler(item.id)}
+                    onClick={() => dispatch(deleteTodo(item.id))}
                   >
                     삭제하기
                   </S.TodoListButton>
                   <S.TodoListButton
                     $IsDone={item.isDone}
-                    onClick={() => clickDoneButtonHandler(item.id)}
+                    onClick={() => dispatch(toggleStatusTodo(item.id))}
                   >
                     {item.isDone == false ? "완료" : "취소"}
                   </S.TodoListButton>

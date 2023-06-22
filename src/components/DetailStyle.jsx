@@ -7,7 +7,7 @@ export const S = {
     width: 760px;
     min-height: 300px;
     margin: 32px auto;
-    padding: 74px 60px 0;
+    padding: 62px 60px 0;
   `,
   DetailSpan: styled.span`
     font-size: 16px;

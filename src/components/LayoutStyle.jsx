@@ -8,7 +8,7 @@ export const S = {
     padding: 10px 30px 90px;
   `,
   LayoutH1: styled.h1`
-    margin: 16px 0;
+    margin: 16px 0 32px;
     font-size: 22px;
     font-weight: 600;
   `
