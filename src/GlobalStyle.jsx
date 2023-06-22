@@ -1,5 +1,7 @@
-@charset "utf-8";
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
+const { createGlobalStyle } = require("styled-components");
+
+const GlobalStyle = createGlobalStyle`
+    @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap");
 
 /* Reset */
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -151,17 +153,6 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
+`;
 
-/* Layout */
-#wrap {
-  max-width: 1200px;
-  min-width: 800px;
-  margin: 0 auto;
-  padding: 10px 30px 90px;
-}
-
-h1 {
-  margin: 16px 0;
-  font-size: 22px;
-  font-weight: 600;
-}
+export default GlobalStyle;
