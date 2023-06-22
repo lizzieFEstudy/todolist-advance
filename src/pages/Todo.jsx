@@ -1,5 +1,4 @@
 import React from "react";
-import "pages/Todo.css";
 import Input from "components/Input";
 import TodoList from "components/TodoList";
 import { useSelector } from "react-redux";

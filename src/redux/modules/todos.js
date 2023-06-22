@@ -56,10 +56,6 @@ const todos = (state = initialState, action) => {
       return {
         todos: action.payload
       };
-    case UPDATE_TODO:
-      return {
-        todos: action.payload
-      };
     default:
       return state;
   }

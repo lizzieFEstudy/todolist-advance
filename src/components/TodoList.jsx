@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "redux/modules/todos";
+import { S } from "./TodoListStyle";
 
 const TodoList = ({ todos, listIsDone }) => {
   const dispatch = useDispatch();
@@ -26,33 +27,32 @@ const TodoList = ({ todos, listIsDone }) => {
 
   return (
     <section>
-      <h2>{listIsDone ? "Done..! 🎉" : "Working.. 🔥"}</h2>
-      <ul className={listIsDone ? "todos-list done" : "todos-list"}>
+      <S.TodoListH2>{listIsDone ? "Done..! 🎉" : "Working.. 🔥"}</S.TodoListH2>
+      <S.TodoListList>
         {todos
           .filter(item => item.isDone == listIsDone)
           .map(item => {
             return (
-              <li key={item.id}>
-                <strong>{item.title}</strong>
-                <p>{item.contents}</p>
-                <div className="btn-wrap">
-                  <button
-                    className="btn-del"
+              <S.TodoListItem $IsDone={item.isDone} key={item.id}>
+                <S.TodoListStrong>{item.title}</S.TodoListStrong>
+                <S.TodoListParagraph>{item.contents}</S.TodoListParagraph>
+                <S.TodoListBox>
+                  <S.TodoListButton
                     onClick={() => clickRemoveButtonHandler(item.id)}
                   >
                     삭제하기
-                  </button>
-                  <button
-                    className="btn-done"
+                  </S.TodoListButton>
+                  <S.TodoListButton
+                    $IsDone={item.isDone}
                     onClick={() => clickDoneButtonHandler(item.id)}
                   >
                     {item.isDone == false ? "완료" : "취소"}
-                  </button>
-                </div>
-              </li>
+                  </S.TodoListButton>
+                </S.TodoListBox>
+              </S.TodoListItem>
             );
           })}
-      </ul>
+      </S.TodoListList>
     </section>
   );
 };

@@ -1,12 +1,15 @@
-import "App.css";
+import GlobalStyle from "GlobalStyle";
 import Layout from "components/Layout";
 import Todo from "pages/Todo";
 
 function App() {
   return (
-    <Layout>
-      <Todo />
-    </Layout>
+    <>
+      <GlobalStyle></GlobalStyle>
+      <Layout>
+        <Todo />
+      </Layout>
+    </>
   );
 }
 

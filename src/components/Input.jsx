@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
 import { addTodo } from "redux/modules/todos";
+import { S } from "./InputStyle";
 
 const Input = () => {
   const dispatch = useDispatch();
@@ -31,29 +32,27 @@ const Input = () => {
   };
 
   return (
-    <form className="add-form-box" onSubmit={onSubmitHandler}>
-      <label>
+    <S.InputForm onSubmit={onSubmitHandler}>
+      <S.InputLabel>
         제목
-        <input
-          className="form"
+        <S.InputInput
           type="text"
           value={title}
           onChange={e => onChangeHandler(e, setTitle)}
-        ></input>
-      </label>
+        ></S.InputInput>
+      </S.InputLabel>
 
-      <label>
+      <S.InputLabel>
         내용
-        <input
-          className="form"
+        <S.InputInput
           type="text"
           value={contents}
           onChange={e => onChangeHandler(e, setContents)}
-        ></input>
-      </label>
+        ></S.InputInput>
+      </S.InputLabel>
 
-      <button>추가하기</button>
-    </form>
+      <S.InputButton>추가하기</S.InputButton>
+    </S.InputForm>
   );
 };
 

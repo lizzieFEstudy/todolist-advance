@@ -1,15 +1,16 @@
 import React from "react";
+import { S } from "./LayoutStyle";
 
 const Layout = ({ children }) => {
   return (
-    <div id="wrap">
+    <S.LayoutBox>
       <header>
-        <h1>My Todo List</h1>
+        <S.LayoutH1>My Todo List</S.LayoutH1>
       </header>
 
       {/* <div id="container"> */}
       <main id="main">{children}</main>
-    </div>
+    </S.LayoutBox>
   );
 };
 
