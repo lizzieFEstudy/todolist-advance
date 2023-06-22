@@ -1,7 +1,6 @@
 import React from "react";
 import Input from "components/Input";
 import TodoList from "components/TodoList";
-import { useSelector } from "react-redux";
 
 const Todo = () => {
   // let getData = () =>
@@ -23,16 +22,12 @@ const Todo = () => {
   // let [todos, setTodos] = useState(getData);
   // localStorage.setItem("todos", JSON.stringify(todos));
 
-  const todos = useSelector(state => {
-    return state.todos.todos;
-  });
-
   return (
     <>
-      <Input todos={todos} />
+      <Input />
 
-      <TodoList todos={todos} listIsDone={false} />
-      <TodoList todos={todos} listIsDone={true} />
+      <TodoList listIsDone={false} />
+      <TodoList listIsDone={true} />
     </>
   );
 };

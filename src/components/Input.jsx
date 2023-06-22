@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import uuid from "react-uuid";
 import { addTodo } from "redux/modules/todos";
 import { S } from "./InputStyle";
 
@@ -17,19 +16,20 @@ const Input = () => {
   const onSubmitHandler = e => {
     e.preventDefault();
 
-    let newTodos = {
-      id: uuid(),
-      title,
-      contents,
-      isDone: false
-    };
+    if (!title) return window.alert("제목을 입력해주세요");
 
-    dispatch(addTodo(newTodos));
+    dispatch(addTodo(title, contents));
 
     setTitle("");
-
     setContents("");
   };
+
+  useEffect(() => {
+    return () => {
+      setTitle("");
+      setContents("");
+    };
+  }, []);
 
   return (
     <S.InputForm onSubmit={onSubmitHandler}>
