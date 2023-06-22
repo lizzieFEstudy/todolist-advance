@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteTodo, updateTodo } from "redux/modules/todos";
 import { S } from "./TodoListStyle";
+import { Link } from "react-router-dom";
 
 const TodoList = ({ todos, listIsDone }) => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const TodoList = ({ todos, listIsDone }) => {
               <S.TodoListItem $IsDone={item.isDone} key={item.id}>
                 <S.TodoListStrong>{item.title}</S.TodoListStrong>
                 <S.TodoListParagraph>{item.contents}</S.TodoListParagraph>
+                <Link to={`/detail/${item.id}`}>상세보기</Link>
                 <S.TodoListBox>
                   <S.TodoListButton
                     onClick={() => clickRemoveButtonHandler(item.id)}

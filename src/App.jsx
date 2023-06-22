@@ -1,16 +1,7 @@
-import GlobalStyle from "GlobalStyle";
-import Layout from "components/Layout";
-import Todo from "pages/Todo";
+import Router from "shared/Router";
 
 function App() {
-  return (
-    <>
-      <GlobalStyle></GlobalStyle>
-      <Layout>
-        <Todo />
-      </Layout>
-    </>
-  );
+  return <Router />;
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import uuid from "react-uuid";
 import { addTodo } from "redux/modules/todos";
@@ -27,9 +27,15 @@ const Input = () => {
     dispatch(addTodo(newTodos));
 
     setTitle("");
-
     setContents("");
   };
+
+  useEffect(() => {
+    return () => {
+      setTitle("");
+      setContents("");
+    };
+  }, []);
 
   return (
     <S.InputForm onSubmit={onSubmitHandler}>
